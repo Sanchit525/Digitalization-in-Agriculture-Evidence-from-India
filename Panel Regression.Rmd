@@ -1,0 +1,39 @@
+---
+title: "Panel Regression"
+author: "Sanchit Arora"
+date: "2025-03-21"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+```
+
+## Panel Regression Model
+
+```{r}
+install.packages("plm")
+install.packages("lmtest")
+library(lmtest)
+library(plm)
+
+dataset<-read.csv("C:\\Users\\arora\\Downloads\\finally.csv")
+dataset<-pdata.frame(dataset, index=c("District","Year"))
+
+#Handling duplicate values
+#dataset <- dataset[!duplicated(dataset[, c("Dist.Name", "Year")]), ]
+
+#Model building
+model<- plm(Total_Loan_.ST.MT.LT. ~ Total,
+            data = dataset,
+            index = c("District","Year"),
+            model = "within",
+            effect = "twoways")
+
+coeftest(model,vcov=vcovHC, type = "HC1")
+```
+
+\
