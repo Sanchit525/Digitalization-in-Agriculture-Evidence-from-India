@@ -1,1 +1,2 @@
 # Digitalization-in-Agriculture-Evidence-from-India
+This research project investigates the causal impact of digital infrastructure expansion—proxied by the nationwide rollout of Jio’s 4G network in 2016—on agricultural production and credit uptake across rural India. The study uses district-level panel data and econometric modeling to explore how improved digital access influences economic activity in the agricultural sector.
